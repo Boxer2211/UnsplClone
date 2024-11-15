@@ -7,7 +7,6 @@ const AboutImg = () => {
   const navigate = useNavigate()
   const photo = location.state
 
-  console.log(photo)
   return (
     <div>
       <GoHomeButton />
