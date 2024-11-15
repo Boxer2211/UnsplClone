@@ -26,25 +26,31 @@ const PhotosField = ({ getPhotoByQuery, query }) => {
 
   return (
     <>
-      <div
-        style={{
-          columnCount: columns,
-          columnGap: '24px'
-        }}
-      >
-        {photos.map(photo => (
-          <img
-            onClick={() => {
-              navigate(`/${photo.id}`, { state: photo.cover_photo || photo })
+      {photos.length ? (
+        <div>
+          <div
+            style={{
+              columnCount: columns,
+              columnGap: '24px'
             }}
-            key={photo.id}
-            src={photo.urls?.small || photo.cover_photo.urls?.small}
-            alt={photo.alt_description}
-            className='mb-4 w-full object-cover break-inside-avoid block cursor-pointer'
-          />
-        ))}
-      </div>
-      <Pagination page={page} setPage={setPage} />
+          >
+            {photos.map(photo => (
+              <img
+                onClick={() => {
+                  navigate(`/${photo.id}`, { state: photo.cover_photo || photo })
+                }}
+                key={photo.id}
+                src={photo.urls?.small || photo.cover_photo.urls?.small}
+                alt={photo.alt_description}
+                className='mb-4 w-full object-cover break-inside-avoid block cursor-pointer'
+              />
+            ))}
+          </div>
+          <Pagination page={page} setPage={setPage} />
+        </div>
+      ) : (
+        <div>Not found! Please, change search request or back to home</div>
+      )}
     </>
   )
 }
