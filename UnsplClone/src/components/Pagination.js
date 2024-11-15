@@ -10,7 +10,7 @@ const Pagination = ({ page, setPage }) => {
   }
 
   return (
-    <div className='w-full mt-4 flex items-center justify-center gap-3'>
+    <div className='w-full my-4 flex items-center justify-center gap-3'>
       <CustomButton label={'Previous'} action={handlePagePrevious} disabled={page === 1} />
       <CustomButton label={'Next'} action={handlePageNext} />
     </div>
